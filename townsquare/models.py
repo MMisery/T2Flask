@@ -1,11 +1,7 @@
 #Backend of the application, setting up the database and establishing the ORM.
 
-
-# Bringing in the application
-
-
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, Unicode, ForeignKey
+from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, Unicode, ForeignKey, DateTime
 
 
 # define our database here
@@ -25,8 +21,9 @@ class Person(db.Model):
 	first_name = Column(Unicode(100))
 	middle_name = Column(Unicode(100))
 	last_name = Column(Unicode(100))
+	email = Column(Unicode(100))
 
-	def __init__(self, first_name, middle_name, last_name):
+	def __init__(self, first_name, last_name):
 		self.first_name = first_name
 		self.last_name = last_name
 
@@ -42,4 +39,7 @@ class Volunteer(Person):
 
 	# ID is related to the corresponding "Person" ID
 	id = Column(Integer, ForeignKey('person.id'), primary_key=True)
-
+	signup_date = Column(DateTime)
+	birth_date = Column(DateTime)
+	#Date Signed Waiver and Code of Conduct
+	legal_date = Column(DateTime)

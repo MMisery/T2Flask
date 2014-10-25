@@ -1,5 +1,5 @@
 
-from townsquare import app
+from townsquare.views import app
 from townsquare.models import db
 
 db.init_app(app)
