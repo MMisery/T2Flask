@@ -1,11 +1,31 @@
 #Backend of the application, setting up the database and establishing the ORM.
 
+from flask import current_app, render_template, Flask
+import config
+
+
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.script import Manager
+from flask.ext.migrate import Migrate, MigrateCommand
 from sqlalchemy import Column, Integer, Unicode, ForeignKey, DateTime
+
+
+# Create the application
+app = Flask(__name__)
+
+# Set config on app
+app.config.from_object(config)
+
+
 
 
 # define our database here
 db = SQLAlchemy()
+
+
+migrate = Migrate(app, db)
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
 
 
 class Person(db.Model):

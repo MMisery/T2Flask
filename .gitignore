@@ -1,2 +1,4 @@
 townsquare/config.py
 townsquare/config.pyc
+.idea
+migrations

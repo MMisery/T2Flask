@@ -1,17 +1,6 @@
 #Creation of URIs, passing to templates to create the frontend.
 
-
-from flask import current_app, render_template, Flask
-from .models import Person
-import config
-
-# Create the application
-app = Flask(__name__)
-
-# Set config on app
-app.config.from_object(config)
-
-
+from .models import app, Person
 
 @app.route('/')
 def index():

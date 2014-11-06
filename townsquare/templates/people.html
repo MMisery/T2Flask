@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <head></head>
 <body>
 <table>
     {% for person in people %}
-    <tr><td>{{ person }}</td></tr>
+    <tr><td>{{ person.first_name }}</td><td>{{ person.last_name }}</td></tr>
     {% endfor %}
 </table>
 </body>
