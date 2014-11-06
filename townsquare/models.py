@@ -18,7 +18,7 @@ class Person(db.Model):
 	first_name = Column(Unicode(100))
 	middle_name = Column(Unicode(100))
 	last_name = Column(Unicode(100))
-	email = Column(Unicode(100))
+	#email = Column(Unicode(100))
 
 	def __init__(self, first_name, last_name):
 		self.first_name = first_name
